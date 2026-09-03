@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import.meta.env.VITE_API_URL
 
 function App() {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/health")
+    fetch(`${import.meta.env.VITE_API_URL}/api/health`)
       .then((response) => response.json())
       .then((result) => setData(result))
       .catch(() => setError("Backend connection failed"));
